@@ -19,13 +19,19 @@ const Section = ({ title, content, images = [] }) => {
         className="bg-carousel"
         style={{ transform: `translateX(-${currentIndex * 100}vw)` }}
       >
-        {images.map((img, index) => (
-          <div 
-            key={index} 
-            className="bg-slide" 
-            style={{ backgroundImage: `url(${img})` }}
-          />
-        ))}
+        {images.map((img, index) => {
+          // Only load the image into memory if it's currently visible or about to be visible
+          const diff = Math.abs(index - currentIndex);
+          const isNear = diff <= 2 || diff >= images.length - 2;
+
+          return (
+            <div 
+              key={index} 
+              className="bg-slide" 
+              style={{ backgroundImage: isNear ? `url(${img})` : 'none' }}
+            />
+          );
+        })}
       </div>
 
       {/* Glassmorphism Card */}
