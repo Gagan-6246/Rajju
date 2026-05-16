@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
-const Section = ({ title, content, images = [] }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Section = ({ title, content, images = [], reverse = false }) => {
+  const [currentIndex, setCurrentIndex] = useState(reverse ? images.length - 1 : 0);
 
   useEffect(() => {
     if (images.length === 0) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => {
+        if (reverse) {
+          return (prevIndex - 1 + images.length) % images.length;
+        }
+        return (prevIndex + 1) % images.length;
+      });
     }, 3000); // 3 seconds interval
 
     return () => clearInterval(interval);

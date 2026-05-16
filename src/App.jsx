@@ -61,11 +61,12 @@ function App() {
     <div className="app-container">
       <BouncingWatermark />
       {sectionsWithImages.map((section) => (
-        <Section
+        <Section 
           key={section.id}
           title={section.title}
           content={section.content}
           images={section.images}
+          reverse={section.id === 2}
         />
       ))}
     </div>
