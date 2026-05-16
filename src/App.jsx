@@ -57,6 +57,9 @@ function App() {
     setSectionsWithImages(initializedSections);
   }, []);
 
+  // Find the specific final image
+  const finalImage = allImages.find(img => img.includes('IMG_0464')) || `${basePath}/images/IMG_0464.JPG`;
+
   return (
     <div className="app-container">
       <BouncingWatermark />
@@ -69,6 +72,16 @@ function App() {
           reverse={section.id === 2}
         />
       ))}
+      
+      {/* Final Static Section */}
+      <div className="section-container">
+        <div className="bg-slide" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+          <img src={finalImage} alt="I love you" className="bg-img" />
+        </div>
+        <div className="glass-card" style={{ zIndex: 10 }}>
+          <h2 style={{ marginBottom: 0 }}>I Love You</h2>
+        </div>
+      </div>
     </div>
   );
 }
