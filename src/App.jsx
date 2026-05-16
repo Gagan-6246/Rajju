@@ -4,8 +4,9 @@ import BouncingWatermark from './components/BouncingWatermark';
 
 // Dynamically get all images from the public/images directory
 const imageFiles = import.meta.glob('/public/images/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
-// Convert the paths from '/public/images/IMG.jpg' to '/images/IMG.jpg' for correct public URL access
-const allImages = Object.keys(imageFiles).map(path => path.replace('/public', ''));
+// Convert the paths to use the correct base URL for GitHub Pages
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const allImages = Object.keys(imageFiles).map(path => path.replace('/public', basePath));
 
 // Helper function to shuffle an array
 const shuffleArray = (array) => {
