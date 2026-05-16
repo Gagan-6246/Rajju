@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Section from './components/Section';
+import BouncingWatermark from './components/BouncingWatermark';
 
 // Dynamically get all images from the public/images directory
 const imageFiles = import.meta.glob('/public/images/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
@@ -57,6 +58,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <BouncingWatermark />
       {sectionsWithImages.map((section) => (
         <Section
           key={section.id}
