@@ -1,0 +1,1 @@
+var e=`/Rajju/assets/IMG_0429-DEd_kyns.JPG`;export{e as default};
