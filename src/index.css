@@ -54,14 +54,22 @@ html, body {
 .bg-slide {
   min-width: 100vw;
   height: 80vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: brightness(0.6); /* darken background slightly so text pops */
+  position: relative;
+  overflow: hidden;
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.6); /* darken background slightly so text pops */
+  display: block;
+  pointer-events: none;
 }
 
 /* Glassmorphism Card */

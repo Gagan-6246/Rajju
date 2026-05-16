@@ -32,9 +32,10 @@ const Section = ({ title, content, images = [], reverse = false }) => {
           return (
             <div 
               key={index} 
-              className="bg-slide" 
-              style={{ backgroundImage: isNear ? `url(${img})` : 'none' }}
-            />
+              className="bg-slide"
+            >
+              {isNear && <img src={img} alt="carousel slide" className="bg-img" />}
+            </div>
           );
         })}
       </div>
