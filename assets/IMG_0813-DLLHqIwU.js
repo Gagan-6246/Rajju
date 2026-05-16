@@ -1,1 +1,0 @@
-var e=`/Rajju/assets/IMG_0813-CMOR_pLK.JPG`;export{e as default};
