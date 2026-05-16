@@ -1,1 +1,0 @@
-var e=`/Rajju/assets/IMG_2248-BDS2qzgh.JPG`;export{e as default};

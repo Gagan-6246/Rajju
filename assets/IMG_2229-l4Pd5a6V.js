@@ -1,0 +1,1 @@
+var e=`/Rajju/assets/IMG_2229-DO0msZvP.JPG`;export{e as default};

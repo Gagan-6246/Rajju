@@ -1,1 +1,0 @@
-var e=`/Rajju/assets/IMG_2883-dktMatCl.JPG`;export{e as default};

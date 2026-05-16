@@ -1,0 +1,1 @@
+var e=`/Rajju/assets/IMG_1215-Bu2BOPit.JPG`;export{e as default};
