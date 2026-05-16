@@ -31,7 +31,7 @@ html, body {
 .section-container {
   position: relative;
   width: 100vw;
-  height: 100vh; /* full viewport height for each section */
+  height: 80vh; /* 80 viewport height for each section */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,7 +53,7 @@ html, body {
 
 .bg-slide {
   min-width: 100vw;
-  height: 100vh;
+  height: 80vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
