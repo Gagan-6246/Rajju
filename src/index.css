@@ -11,7 +11,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   font-family: var(--font-body);
@@ -31,7 +32,8 @@ html, body {
 .section-container {
   position: relative;
   width: 100vw;
-  height: 80vh; /* 80 viewport height for each section */
+  height: 80vh;
+  /* 80 viewport height for each section */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,9 +69,16 @@ html, body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.6); /* darken background slightly so text pops */
+  filter: brightness(0.6);
+  /* darken background slightly so text pops */
   display: block;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.bg-img.loaded {
+  opacity: 1;
 }
 
 /* Glassmorphism Card */
@@ -77,8 +86,8 @@ html, body {
   position: relative;
   z-index: 10;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 24px;
   padding: 3rem;
@@ -99,15 +108,23 @@ html, body {
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
   transform: skewX(-20deg);
   animation: shine 4s infinite;
 }
 
 @keyframes shine {
-  0% { left: -100%; }
-  20% { left: 200%; }
-  100% { left: 200%; }
+  0% {
+    left: -100%;
+  }
+
+  20% {
+    left: 200%;
+  }
+
+  100% {
+    left: 200%;
+  }
 }
 
 @keyframes fadeUp {
@@ -139,9 +156,11 @@ html, body {
   .glass-card {
     padding: 2rem;
   }
+
   .glass-card h2 {
     font-size: 2rem;
   }
+
   .glass-card p {
     font-size: 1rem;
   }

@@ -34,7 +34,16 @@ const Section = ({ title, content, images = [], reverse = false }) => {
               key={index} 
               className="bg-slide"
             >
-              {isNear && <img src={img} alt="carousel slide" className="bg-img" />}
+              {isNear && (
+                <img
+                  src={img}
+                  alt="carousel slide"
+                  className="bg-img"
+                  loading="lazy"
+                  decoding="async"
+                  onLoad={(e) => e.target.classList.add('loaded')}
+                />
+              )}
             </div>
           );
         })}

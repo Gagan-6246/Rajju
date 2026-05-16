@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Section from './components/Section';
 import BouncingWatermark from './components/BouncingWatermark';
 
-// Dynamically get all images from the public/images directory
-const imageFiles = import.meta.glob('/public/images/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
+// Dynamically get all images from the optimized images directory
+const imageFiles = import.meta.glob('/public/images/optimized/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
 // Convert the paths to use the correct base URL for GitHub Pages
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 const allImages = Object.keys(imageFiles).map(path => path.replace('/public', basePath));
@@ -58,13 +58,13 @@ function App() {
   }, []);
 
   // Find the specific final image
-  const finalImage = allImages.find(img => img.includes('IMG_0464')) || `${basePath}/images/IMG_0464.JPG`;
+  const finalImage = allImages.find(img => img.includes('IMG_0464')) || `${basePath}/images/`;
 
   return (
     <div className="app-container">
       <BouncingWatermark />
       {sectionsWithImages.map((section) => (
-        <Section 
+        <Section
           key={section.id}
           title={section.title}
           content={section.content}
@@ -72,11 +72,11 @@ function App() {
           reverse={section.id === 2}
         />
       ))}
-      
+
       {/* Final Static Section */}
       <div className="section-container">
         <div className="bg-slide" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
-          <img src={finalImage} alt="I love you" className="bg-img" />
+          <img src={finalImage} alt="I love you" className="bg-img" loading="lazy" decoding="async" onLoad={(e) => e.target.classList.add('loaded')} />
         </div>
         <div className="glass-card" style={{ zIndex: 10 }}>
           <h2 style={{ marginBottom: 0 }}>I Love You</h2>
